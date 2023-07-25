@@ -1,4 +1,8 @@
-export const GetStartedParagraph = ({ text } : {text: string}) => {
+type GetStartedParagraphProps = {
+    text: String;
+}
+
+export const GetStartedParagraph = ({ text }: GetStartedParagraphProps) => {
     return (
         <p>
             {text}
