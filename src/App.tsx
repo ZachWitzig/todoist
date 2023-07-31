@@ -1,10 +1,16 @@
+import { styled } from 'styled-components';
+
+const CoolParagraph = styled.p`
+  color: red;
+  font-weight: 700;
+`;
 
 function App() {
   return (
     <>
-      <p>
+      <CoolParagraph>
         Build the thing :)
-      </p>
+      </CoolParagraph>
     </>
   )
 }
