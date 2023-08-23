@@ -36,7 +36,7 @@ const DEFAULT_TODO_LIST: TodoList = {
 function App() {
   const [todoListItems, setTodoListItems] = useState<TodoItemType[]>(DEFAULT_TODO_LIST.todos);
 
-  const handleTodoItemChecked = (index: number, newCheckedState: boolean) => {
+  function handleTodoItemChecked(index: number, newCheckedState: boolean) {
     const todoListItem = todoListItems[index];
 
     todoListItem.isDone = newCheckedState;
@@ -44,6 +44,28 @@ function App() {
     todoListItems[index] = todoListItem;
 
     setTodoListItems([...todoListItems]);
+
+  }
+
+  function handleTodoItemDelete(index: number) {
+    todoListItems.splice(index, 1);
+    setTodoListItems([...todoListItems]);
+  }
+
+  function handleTodoItemAdd() {
+    const todoListItemName = prompt("Enter a todo!")
+    
+    if (todoListItemName == null || todoListItemName == "") {
+      return
+    }
+
+    todoListItems.push(
+      {
+        name: todoListItemName,
+        isDone: false
+      },
+    )
+    setTodoListItems([...todoListItems])
   }
 
   return (
@@ -53,9 +75,16 @@ function App() {
       </header>
       <section>
         {
-          todoListItems.map((todoListItem, index) => <TodoItem key={index} index={index} item={todoListItem} handleTodoItemChecked={handleTodoItemChecked} />)
-        }
+          todoListItems.map((todoListItem, index) => 
+            <TodoItem 
+              key={index} 
+              index={index} 
+              item={todoListItem} 
+              onTodoItemChecked={handleTodoItemChecked} 
+              onDeleteClick={handleTodoItemDelete}/>
+        )}
       </section>
+      <button onClick={handleTodoItemAdd}>Add New Todo</button>
     </div>
   )
 }
