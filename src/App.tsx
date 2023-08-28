@@ -53,7 +53,7 @@ function App() {
   }
 
   function handleTodoItemAdd() {
-    const todoListItemName = prompt("Enter a todo!")
+    const todoListItemName = prompt("Enter a todo!");
     
     if (todoListItemName == null || todoListItemName == "") {
       return
@@ -64,8 +64,8 @@ function App() {
         name: todoListItemName,
         isDone: false
       },
-    )
-    setTodoListItems([...todoListItems])
+    );
+    setTodoListItems([...todoListItems]);
   }
 
   return (

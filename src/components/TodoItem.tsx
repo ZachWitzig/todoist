@@ -1,4 +1,4 @@
-import { ChangeEvent, MouseEvent } from "react";
+import { ChangeEvent } from "react";
 import { TodoItemType } from "../App";
 
 type TodoItemProps = {
@@ -6,7 +6,7 @@ type TodoItemProps = {
     item: TodoItemType;
     onTodoItemChecked: (index: number, newCheckedState: boolean) => void;
     onDeleteClick: (index: number) => void;
-}
+} 
 
 export function TodoItem({ index, item, onTodoItemChecked, onDeleteClick }: TodoItemProps) {
     const { isDone, name } = item;
@@ -19,26 +19,23 @@ export function TodoItem({ index, item, onTodoItemChecked, onDeleteClick }: Todo
 
     function handleDeleteClick() {
       onDeleteClick(index);
+    }   
+
+    function TodoItemName({name, isDone}: { name: string; isDone: boolean; }) {
+      if (!isDone) {
+          return (<p>{name}</p>);
+      }
+      
+      return (<p><s>{name}</s></p>);
     }
 
-    if (isDone){
       return (
         <div style={{
           marginBottom: `2px`
         }}>
           <input type="checkbox" checked={isDone} onChange={handleOnChange}/>
-          <p><s>{name}</s></p>
+          <TodoItemName name={name} isDone={isDone} />
           <button onClick={handleDeleteClick}>Delete</button>
-        </div>)
-    }
-
-    return (
-      <div style={{
-        marginBottom: `2px`
-      }}>
-        <input type="checkbox" checked={isDone} onChange={handleOnChange}/>
-        <p>{name}</p>
-        <button onClick={handleDeleteClick}>Delete</button>
-      </div>
-    );
+        </div>
+      );
     }
