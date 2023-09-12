@@ -69,8 +69,8 @@ function App() {
   }
 
   return (
-    <div>
-      <header>
+    <div className="my-todolist">
+      <header className="title">
         <h1>{DEFAULT_TODO_LIST.title}</h1>
       </header>
       <section>
@@ -84,7 +84,7 @@ function App() {
               onDeleteClick={handleTodoItemDelete}/>
         )}
       </section>
-      <button onClick={handleTodoItemAdd}>Add New Todo</button>
+      <button className="add-todo-button" onClick={handleTodoItemAdd}>Add New Todo</button>
     </div>
   )
 }

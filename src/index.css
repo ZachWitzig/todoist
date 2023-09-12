@@ -47,7 +47,7 @@ button {
   transition: border-color 0.25s;
 }
 button:hover {
-  border-color: #646cff;
+  border-color: #000dff;
 }
 button:focus,
 button:focus-visible {
@@ -60,9 +60,54 @@ button:focus-visible {
     background-color: #ffffff;
   }
   a:hover {
-    color: #747bff;
+    color: #f7ff06;
   }
   button {
     background-color: #f9f9f9;
   }
 }
+
+  .todos {
+    display: flex;
+    justify-content:space-between;
+    font-family: fantasy;
+    /* padding-left: 350px;
+    padding-right: 100px; */
+    width: 100%;
+  }
+
+  .my-todolist {
+    display: grid;
+    grid-template-columns: 400px 50px 100px 100px;
+    grid-template-rows: auto;
+    grid-template-areas: 
+    "header header header header"
+    "main main main main"
+    "footer footer footer footer";
+    row-gap: 20px;
+    justify-items: center;
+    background-color: #000dff;
+  }
+
+  .title {
+    display: flex;
+    grid-area: header;
+    justify-content: center;
+    font-family: fantasy;
+  }
+
+  .delete-button {
+    display: flex;
+    background-color: #ff0000;
+    align-self: center;
+    justify-content: center;
+  }
+
+  .add-todo-button {
+    display: flex;
+    background-color: #e937c2;
+    grid-area: main;
+    justify-content: center;
+    font-display: bold;
+    font-style: oblique;
+  }

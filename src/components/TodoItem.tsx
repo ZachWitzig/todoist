@@ -32,10 +32,10 @@ export function TodoItem({ index, item, onTodoItemChecked, onDeleteClick }: Todo
       return (
         <div style={{
           marginBottom: `2px`
-        }}>
+        }} className="todos">
           <input type="checkbox" checked={isDone} onChange={handleOnChange}/>
           <TodoItemName name={name} isDone={isDone} />
-          <button onClick={handleDeleteClick}>Delete</button>
+          <button className="delete-button" onClick={handleDeleteClick}>Delete</button>
         </div>
       );
     }
